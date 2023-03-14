@@ -185,27 +185,104 @@
             }
         },
         {
-            "name": "FlexComponent",
-            "id": "component-FlexComponent-992ce44a61d1c4510fe31d08b8f35d3df19feff8df0cc406597464d9d2c2b1bdcb7ad7b925a7bdf60bbd756303222a5a9200d6088851e6277c3a2e69cdf4ebb5",
-            "file": "src/components/flex-component/flex-component.component.ts",
+            "name": "ButtonFlexComponent",
+            "id": "component-ButtonFlexComponent-fe26a351db5b3ae6e6218e6ada8a26a77531f2206321f88362702536db40f02879042299a120a6aa79e8f49a9b1b87af14313744d6041461e649e579985575da",
+            "file": "src/components/button-flex/button-flex.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-flex-component",
+            "selector": "app-button-flex",
             "styleUrls": [
-                "./flex-component.component.scss"
+                "./button-flex.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./flex-component.component.html"
+                "./button-flex.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "defaultValue": "'red'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'lg'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "handleClick",
+                    "args": [
+                        {
+                            "name": "args",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "args",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -213,16 +290,27 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-flex-component',\n  templateUrl: './flex-component.component.html',\n  styleUrls: ['./flex-component.component.scss'],\n})\nexport class FlexComponent {}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-button-flex',\n  templateUrl: './button-flex.component.html',\n  styleUrls: ['./button-flex.component.scss'],\n})\nexport class ButtonFlexComponent implements OnInit {\n  @Input() label: string = 'Button';\n  @Input() backgroundColor: string = 'red';\n  @Input() size: string = 'lg';\n  style: any;\n  constructor() {}\n  ngOnInit(): void {\n    let scale = 1;\n    if (this.size === 'sm') scale = 0.75;\n    if (this.size === 'lg') scale = 1.5;\n    const backgroundColor = this.backgroundColor;\n    this.style = {\n      backgroundColor,\n      padding: `${scale * 0.5}rem ${scale * 1}rem`,\n      border: 'none',\n    };\n  }\n  handleClick(args: any) {\n    args;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "",
-                    "styleUrl": "./flex-component.component.scss"
+                    "styleUrl": "./button-flex.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>flex-component works!</p>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 12
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<button (click)=\"handleClick('hello')\" [style]=\"style\">{{ label }}</button>\n"
         },
         {
             "name": "HeaderComponent",
@@ -376,6 +464,125 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "StackComponent",
+            "id": "component-StackComponent-1a521a9e76814699bc328d48129c7643d75088c52fec653fe2cdc833247644485ae018e4bd3b2554f97d85bec52a8319734a5ebdf2aa7f7177fad86ec17646c6",
+            "file": "src/components/stack/stack.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-stack",
+            "styleUrls": [
+                "./stack.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./stack.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "direction",
+                    "defaultValue": "'row'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "numberOfChildren",
+                    "defaultValue": "4",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "spacing",
+                    "defaultValue": "2",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "wrap",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "items",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-stack',\n  templateUrl: './stack.component.html',\n  styleUrls: ['./stack.component.scss'],\n})\nexport class StackComponent implements OnInit {\n  @Input() numberOfChildren: number = 4;\n  @Input() direction: string = 'row';\n  @Input() spacing: number = 2;\n  @Input() wrap: boolean = false;\n\n  items: number[] = [];\n  style: any;\n\n  constructor() {}\n  ngOnInit(): void {\n    this.items = [...Array(this.numberOfChildren).keys()].map((n) => n + 1);\n    // let scale = 1;\n    // if (\n    //   this.direction === 'row-reverse' ||\n    //   this.direction === 'column-reverse'\n    // ) {\n    //   scale = -1;\n    // }\n    const gap = this.spacing + 'rem';\n\n    this.style = {\n      display: 'flex',\n      'flex-direction': this.direction,\n      'flex-wrap': this.wrap ? 'wrap' : 'nowrap',\n      'justify-content':\n        this.direction === 'row' || this.direction === 'row-reverse'\n          ? 'flex-start'\n          : 'center',\n      'align-items':\n        this.direction === 'column' || this.direction === 'column-reverse'\n          ? 'flex-start'\n          : 'center',\n      gap,\n      // transform: `scale(${scale}, 1)`,\n    };\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./stack.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 15
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div [style]=\"style\">\n  <div\n    *ngFor=\"let item of items\"\n    style=\"\n      width: 50px;\n      height: 50px;\n      background-color: red;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    \"\n  >\n    {{ item }}\n  </div>\n</div>\n"
         }
     ],
     "modules": [
@@ -476,6 +683,36 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Empty",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/stack/Stack.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Green",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/button-flex/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Horizontal",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/stack/Stack.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -486,6 +723,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/button-flex/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -520,6 +767,26 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LongLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/button-flex/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "NoSpacing",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/stack/Stack.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -530,6 +797,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Red",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/button-flex/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -550,6 +827,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/button-flex/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -584,12 +871,176 @@
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/button-flex/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonFlexComponent>",
+                "defaultValue": "(args: ButtonFlexComponent) => ({\n  component: ButtonFlexComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/stack/Stack.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<StackComponent>",
+                "defaultValue": "(args: StackComponent) => ({\n  component: StackComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Vertical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/stack/Stack.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WrapOverflow",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/components/stack/Stack.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/components/stack/Stack.stories.ts": [
+                {
+                    "name": "Empty",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/stack/Stack.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Horizontal",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/stack/Stack.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "NoSpacing",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/stack/Stack.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/stack/Stack.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<StackComponent>",
+                    "defaultValue": "(args: StackComponent) => ({\n  component: StackComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "Vertical",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/stack/Stack.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WrapOverflow",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/stack/Stack.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/components/button-flex/Button.stories.ts": [
+                {
+                    "name": "Green",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/button-flex/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/button-flex/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LongLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/button-flex/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Red",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/button-flex/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/button-flex/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/components/button-flex/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonFlexComponent>",
+                    "defaultValue": "(args: ButtonFlexComponent) => ({\n  component: ButtonFlexComponent,\n  props: args,\n})"
+                }
+            ],
             "src/stories/Button.stories.ts": [
                 {
                     "name": "Large",
@@ -726,7 +1177,7 @@
         ]
     },
     "coverage": {
-        "count": 4,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -739,12 +1190,141 @@
                 "status": "low"
             },
             {
-                "filePath": "src/components/flex-component/flex-component.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "FlexComponent",
+                "filePath": "src/components/button-flex/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Green",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/button-flex/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/button-flex/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LongLabel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/button-flex/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Red",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/button-flex/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/button-flex/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/button-flex/button-flex.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonFlexComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/Stack.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Empty",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/Stack.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Horizontal",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/Stack.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoSpacing",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/Stack.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/Stack.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Vertical",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/Stack.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WrapOverflow",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/stack/stack.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StackComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
